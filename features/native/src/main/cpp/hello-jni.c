@@ -24,7 +24,7 @@
  *   app/src/main/java/com/example/kotlin/KotlinJni.kt
  */
 JNIEXPORT jstring JNICALL
-Java_com_google_android_samples_dynamicapps_ondemand_NativeSampleActivity_stringFromJNI( JNIEnv* env,
+Java_com_google_android_samples_dynamicfeatures_ondemand_NativeSampleActivity_stringFromJNI( JNIEnv* env,
                                                     jobject thiz )
 {
 #if defined(__arm__)

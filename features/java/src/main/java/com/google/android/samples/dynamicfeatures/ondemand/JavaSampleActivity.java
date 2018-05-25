@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.android.samples.dynamicapps.ondemand;
+package com.google.android.samples.dynamicfeatures.ondemand;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

@@ -14,25 +14,16 @@
  * limitations under the License.
  */
 
-package com.google.android.samples.dynamicapps.ondemand
+package com.google.android.samples.dynamicfeatures.ondemand
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
-import com.google.android.play.core.splitinstall.SplitInstallHelper
+import android.support.v7.app.AppCompatActivity
 
-/** A simple activity displaying some text coming through via JNI. */
-class NativeSampleActivity : AppCompatActivity() {
+/** A simple Activity displaying some text, written in Kotlin. */
+class KotlinSampleActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        SplitInstallHelper.loadLibrary(this, "hello-jni")
-
-        setContentView(R.layout.activity_hello_jni)
-        findViewById<TextView>(R.id.hello_textview).text = stringFromJNI()
+        setContentView(R.layout.activity_feature_kotlin)
     }
-
-    /** Read a string from packaged native code. */
-    external fun stringFromJNI(): String
-
 }

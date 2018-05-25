@@ -17,7 +17,7 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
-    package="com.google.android.samples.dynamicapps.ondemand"
+    package="com.google.android.samples.dynamicfeatures.ondemand"
     split="native">
 
     <dist:module
@@ -27,7 +27,7 @@
     </dist:module>
 
     <application>
-        <activity android:name=".NativeSampleActivity">
+        <activity android:name="com.google.android.samples.dynamicfeatures.ondemand.NativeSampleActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
