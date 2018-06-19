@@ -23,7 +23,7 @@
     <dist:module
         dist:onDemand="true"
         dist:title="@string/module_feature_kotlin">
-        <dist:fusing include="true" />
+        <dist:fusing dist:include="true" />
     </dist:module>
 
     <application>
