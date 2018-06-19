@@ -24,7 +24,7 @@
     <dist:module
         dist:onDemand="true"
         dist:title="@string/module_assets">
-        <dist:fusing include="true" />
+        <dist:fusing dist:include="true" />
     </dist:module>
 
 </manifest>
