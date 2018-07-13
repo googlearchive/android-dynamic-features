@@ -43,12 +43,12 @@ android {
 
 dependencies {
     
-    api 'com.google.android.play:core:1.2.0'
+    api 'com.google.android.play:core:1.3.0'
 
     // Libraries which can be re-used in other modules should use the `api` keyword.
     // This way they can be shared with dependent feature modules.
 
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     api 'com.android.support:appcompat-v7:27.1.1'
-    api 'com.android.support.constraint:constraint-layout:1.1.0'
+    api 'com.android.support.constraint:constraint-layout:1.1.2'
 }
