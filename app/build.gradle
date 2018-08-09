@@ -19,13 +19,13 @@ apply plugin: 'kotlin-android'
 
 android {
 
-    compileSdkVersion 27
-    buildToolsVersion '28.0.0-rc1'
+    compileSdkVersion 28
+    buildToolsVersion '28.0.0'
 
     defaultConfig {
         applicationId "com.google.android.samples.dynamicfeatures.ondemand"
         minSdkVersion 21
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
     }
@@ -43,12 +43,12 @@ android {
 
 dependencies {
     
-    api 'com.google.android.play:core:1.3.0'
+    api 'com.google.android.play:core:1.3.1'
 
     // Libraries which can be re-used in other modules should use the `api` keyword.
     // This way they can be shared with dependent feature modules.
 
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    api 'com.android.support:appcompat-v7:27.1.1'
+    api 'com.android.support:appcompat-v7:28.0.0-rc01'
     api 'com.android.support.constraint:constraint-layout:1.1.2'
 }
