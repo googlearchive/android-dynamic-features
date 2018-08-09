@@ -19,13 +19,13 @@ apply plugin: 'kotlin-android'
 
 android {
 
-    compileSdkVersion 28
+    compileSdkVersion versions.compileSdk
     buildToolsVersion '28.0.0'
 
     defaultConfig {
         applicationId "com.google.android.samples.dynamicfeatures.ondemand"
-        minSdkVersion 21
-        targetSdkVersion 28
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
         versionCode 1
         versionName "1.0"
     }
