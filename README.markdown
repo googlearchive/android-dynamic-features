@@ -35,6 +35,13 @@ how to declare a feature module as part of a dynamic app.
 Clone this repository, enter the top level directory and run <code>./gradlew tasks</code>
 to get an overview of all the tasks available for this project.
 
+## Testing dynamic delivery
+
+To test dynamic delivery with this sample, you'll need to upload it to the Google Play Store's
+internal testing channel.
+
+Before uploading, make sure to change the `applicationId` in `app/build.gradle`.
+
 
 ## Support
 
