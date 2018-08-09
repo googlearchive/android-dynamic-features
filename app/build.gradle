@@ -49,6 +49,7 @@ dependencies {
     // This way they can be shared with dependent feature modules.
 
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    api 'com.android.support:appcompat-v7:28.0.0-rc01'
-    api 'com.android.support.constraint:constraint-layout:1.1.2'
+    api 'androidx.annotation:annotation:1.0.0-rc01'
+    api 'androidx.appcompat:appcompat:1.0.0-rc01'
+    api 'androidx.constraintlayout:constraintlayout:1.1.2'
 }

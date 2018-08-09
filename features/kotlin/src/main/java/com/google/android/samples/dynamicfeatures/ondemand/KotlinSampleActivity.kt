@@ -17,7 +17,7 @@
 package com.google.android.samples.dynamicfeatures.ondemand
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 
 /** A simple Activity displaying some text, written in Kotlin. */
 class KotlinSampleActivity : AppCompatActivity() {
