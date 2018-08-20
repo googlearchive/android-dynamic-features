@@ -14,17 +14,21 @@
  * limitations under the License.
  */
 
-package com.google.android.samples.dynamicfeatures.ondemand
+package com.google.android.samples.dynamicfeatures
 
-import android.os.Bundle
-import com.google.android.samples.dynamicfeatures.BaseSplitActivity
+import android.content.Context
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.play.core.splitcompat.SplitCompat
 
-/** A simple Activity displaying some text, written in Kotlin. */
-class KotlinSampleActivity : BaseSplitActivity() {
+/**
+ * This base activity unifies calls to attachBaseContext as described in:
+ * https://developer.android.com/guide/app-bundle/playcore#invoke_splitcompat_at_runtime
+ */
+abstract class BaseSplitActivity : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_feature_kotlin)
+    override fun attachBaseContext(newBase: Context?) {
+        super.attachBaseContext(newBase)
+        SplitCompat.install(this)
     }
 
 }

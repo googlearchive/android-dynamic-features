@@ -12,6 +12,10 @@ The sample contains several modules.
 
 The `MainActivity` class demonstrates how to use the API to load and launch features.
 
+The `BaseSplitActivity` abstract class implements the required `SplitCompat.Install()` call
+in the `attachBaseContext` method. This allow to launch an activity from a freshly downloaded
+dynamic module without having the restart the application.
+
 `features/*` -> Contains features which can be downloaded on demand using the PlayCore API.
 
 Each feature as some distinctly unique characteristics.

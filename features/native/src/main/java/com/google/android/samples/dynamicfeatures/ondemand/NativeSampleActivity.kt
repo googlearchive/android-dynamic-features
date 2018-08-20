@@ -18,11 +18,11 @@ package com.google.android.samples.dynamicfeatures.ondemand
 
 import android.os.Bundle
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import com.google.android.play.core.splitinstall.SplitInstallHelper
+import com.google.android.samples.dynamicfeatures.BaseSplitActivity
 
 /** A simple activity displaying some text coming through via JNI. */
-class NativeSampleActivity : AppCompatActivity() {
+class NativeSampleActivity : BaseSplitActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,5 +34,4 @@ class NativeSampleActivity : AppCompatActivity() {
 
     /** Read a string from packaged native code. */
     external fun stringFromJNI(): String
-
 }

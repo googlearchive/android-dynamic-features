@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
                       In order to see this, the application has to be uploaded to the Play Store.
                       Then features can be requested until the confirmation path is triggered.
                      */
-                    startIntentSender(state.resolutionIntent().intentSender, null, 0, 0, 0)
+                    startIntentSender(state.resolutionIntent()?.intentSender, null, 0, 0, 0)
                 }
                 SplitInstallSessionStatus.INSTALLED -> {
                     onSuccessfulLoad(name, launch = !multiInstall)
