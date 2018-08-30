@@ -29,6 +29,13 @@ android {
         versionName "1.0"
     }
 
+    buildTypes {
+        debug {}
+        release {
+            minifyEnabled true
+        }
+    }
+
     compileOptions {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
