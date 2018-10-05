@@ -14,10 +14,15 @@
  * limitations under the License.
  */
 
-include ':app',
-        ':features:java',
-        ':features:kotlin',
-        ':features:assets',
-        ':features:native',
-        ':instant:split',
-        ':instant:url'
+package com.android.samples.instantdynamicfeatures
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+
+class UrlInstantModuleActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_url_instant_module)
+    }
+}

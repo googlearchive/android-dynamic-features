@@ -17,6 +17,7 @@
 package com.google.android.samples.dynamicfeatures
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -36,11 +37,15 @@ import com.google.android.play.core.splitinstall.model.SplitInstallSessionStatus
 
 private const val packageName = "com.google.android.samples.dynamicfeatures.ondemand"
 
+private const val instantPackageName = "com.google.android.samples.instantdynamicfeatures"
+
 private const val kotlinSampleClassname = "$packageName.KotlinSampleActivity"
 
 private const val javaSampleClassname = "$packageName.JavaSampleActivity"
 
 private const val nativeSampleClassname = "$packageName.NativeSampleActivity"
+
+private const val instantSampleClassname = "$instantPackageName.SplitInstallInstantActivity"
 
 /** Activity that displays buttons and handles loading of feature modules. */
 class MainActivity : AppCompatActivity() {
@@ -80,6 +85,8 @@ class MainActivity : AppCompatActivity() {
     private val moduleJava by lazy { getString(R.string.module_feature_java) }
     private val moduleNative by lazy { getString(R.string.module_native) }
     private val moduleAssets by lazy { getString(R.string.module_assets) }
+    private val instantModule by lazy { getString(R.string.module_instant_feature_split_install) }
+    private val instantModuleUrl by lazy { getString(R.string.instant_feature_url) }
 
     private val clickListener by lazy {
         View.OnClickListener {
@@ -91,6 +98,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.btn_install_all_now -> installAllFeaturesNow()
                 R.id.btn_install_all_deferred -> installAllFeaturesDeferred()
                 R.id.btn_request_uninstall -> requestUninstall()
+                R.id.btn_instant_dynamic_feature_split_install -> loadAndLaunchModule(instantModule)
+                R.id.btn_instant_dynamic_feature_url_load -> openUrl(instantModuleUrl)
             }
         }
     }
@@ -145,6 +154,14 @@ class MainActivity : AppCompatActivity() {
         manager.startInstall(request)
 
         updateProgressMessage("Starting install for $name")
+    }
+
+    private fun openUrl(url: String) {
+
+        var intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        intent.setPackage(packageName)
+        intent.addCategory(Intent.CATEGORY_BROWSABLE)
+        startActivity(intent)
     }
 
     /** Display assets loaded from the assets feature module. */
@@ -214,6 +231,7 @@ class MainActivity : AppCompatActivity() {
                 moduleJava -> launchActivity(javaSampleClassname)
                 moduleNative -> launchActivity(nativeSampleClassname)
                 moduleAssets -> displayAssets()
+                instantModule -> launchActivity(instantSampleClassname)
             }
         }
 
@@ -257,6 +275,8 @@ class MainActivity : AppCompatActivity() {
         setClickListener(R.id.btn_install_all_now, clickListener)
         setClickListener(R.id.btn_install_all_deferred, clickListener)
         setClickListener(R.id.btn_request_uninstall, clickListener)
+        setClickListener(R.id.btn_instant_dynamic_feature_split_install, clickListener)
+        setClickListener(R.id.btn_instant_dynamic_feature_url_load, clickListener)
     }
 
     private fun setClickListener(id: Int, listener: View.OnClickListener) {

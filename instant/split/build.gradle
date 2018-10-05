@@ -14,10 +14,21 @@
  * limitations under the License.
  */
 
-include ':app',
-        ':features:java',
-        ':features:kotlin',
-        ':features:assets',
-        ':features:native',
-        ':instant:split',
-        ':instant:url'
+apply plugin: 'com.android.dynamic-feature'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+
+    compileSdkVersion 28
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+    }
+}
+
+dependencies {
+    implementation project(':app')
+}

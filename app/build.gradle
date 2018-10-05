@@ -44,11 +44,15 @@ android {
     dynamicFeatures = [':features:kotlin',
                        ':features:java',
                        ':features:native',
-                       ':features:assets']
+                       ':features:assets',
+                       ':instant:split',
+                       ':instant:url']
+
+
 }
 
 dependencies {
-    
+
     api 'com.google.android.play:core:1.3.4'
 
     // Libraries which can be re-used in other modules should use the `api` keyword.
@@ -59,4 +63,5 @@ dependencies {
     api 'androidx.appcompat:appcompat:1.0.0-rc02'
     api "com.google.android.play:core:${versions.playcore}"
     api 'androidx.constraintlayout:constraintlayout:1.1.2'
+    api 'com.google.android.material:material:1.0.0-beta01'
 }

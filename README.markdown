@@ -17,6 +17,7 @@ in the `attachBaseContext` method. This allow to launch an activity from a fresh
 dynamic module without having the restart the application.
 
 `features/*` -> Contains features which can be downloaded on demand using the PlayCore API.
+`instant/*` -> Contains instant enabled features which can be downloaded using the PlayCore API or via Url.
 
 Each feature as some distinctly unique characteristics.
 
@@ -24,10 +25,19 @@ Each feature as some distinctly unique characteristics.
 `features/kotlin` -> Feature written in Kotlin.
 `features/java` -> Feature written in Java.
 `features/native` -> Feature written in Kotlin using JNI.
+`instant/split` -> Instant Feature without an URL route. Loaded using Split
+Install API
+`instant/url` -> Instant Feature with a URL route
 
 The `AndroidManifest` files in each feature show
-how to declare a feature module as part of a dynamic app.
+how to declare a feature module as part of a dynamic app. Any module with the
+instant attribute is instant enabled. In this sample these can be found in the
+`instant/` folder:
 
+```
+  <dist:module
+    dist:instant="true"/>
+```
 
 ## Screenshots
 
