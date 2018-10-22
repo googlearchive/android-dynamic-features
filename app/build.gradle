@@ -59,9 +59,9 @@ dependencies {
     // This way they can be shared with dependent feature modules.
 
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
-    api 'androidx.annotation:annotation:1.0.0-rc02'
-    api 'androidx.appcompat:appcompat:1.0.0-rc02'
+    api 'androidx.annotation:annotation:1.0.0'
+    api 'androidx.appcompat:appcompat:1.0.0'
     api "com.google.android.play:core:${versions.playcore}"
-    api 'androidx.constraintlayout:constraintlayout:1.1.2'
+    api 'androidx.constraintlayout:constraintlayout:1.1.3'
     api 'com.google.android.material:material:1.0.0-beta01'
 }

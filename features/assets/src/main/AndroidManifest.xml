@@ -18,8 +18,7 @@
 <!-- This feature module only contains a single assets file relevant to the Android app. -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
-    package="com.google.android.samples.dynamicfeatures.ondemand.assets"
-    split="assets">
+    package="com.google.android.samples.dynamicfeatures.ondemand.assets">
 
     <dist:module
         dist:onDemand="true"
