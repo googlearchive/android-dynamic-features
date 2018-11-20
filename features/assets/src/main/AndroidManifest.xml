@@ -26,4 +26,7 @@
         <dist:fusing dist:include="true" />
     </dist:module>
 
+    <!-- This feature module doesn't contain code. -->
+    <application android:hasCode="false" />
+
 </manifest>
