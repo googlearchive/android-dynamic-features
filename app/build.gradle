@@ -19,14 +19,21 @@ apply plugin: 'kotlin-android'
 
 android {
 
-    compileSdkVersion 27
+    compileSdkVersion versions.compileSdk
 
     defaultConfig {
-        applicationId "com.google.android.samples.dynamicfeatures.ondemand"
-        minSdkVersion 21
-        targetSdkVersion 27
+        applicationId names.applicationId
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
         versionCode 1
         versionName "1.0"
+    }
+
+    buildTypes {
+        debug {}
+        release {
+            minifyEnabled true
+        }
     }
 
     compileOptions {
@@ -37,17 +44,24 @@ android {
     dynamicFeatures = [':features:kotlin',
                        ':features:java',
                        ':features:native',
-                       ':features:assets']
+                       ':features:assets',
+                       ':instant:split',
+                       ':instant:url']
+
+
 }
 
 dependencies {
-    
-    api 'com.google.android.play:core:1.2.0'
+
+    api 'com.google.android.play:core:1.3.4'
 
     // Libraries which can be re-used in other modules should use the `api` keyword.
     // This way they can be shared with dependent feature modules.
 
-    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    api 'com.android.support:appcompat-v7:27.1.1'
-    api 'com.android.support.constraint:constraint-layout:1.1.0'
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
+    api 'androidx.annotation:annotation:1.0.0'
+    api 'androidx.appcompat:appcompat:1.0.0'
+    api "com.google.android.play:core:${versions.playcore}"
+    api 'androidx.constraintlayout:constraintlayout:1.1.3'
+    api 'com.google.android.material:material:1.0.0-beta01'
 }

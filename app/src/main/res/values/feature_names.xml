@@ -21,4 +21,8 @@
     <string name="module_assets">assets</string>
     <string name="module_large">large</string>
     <string name="module_native">native</string>
+    <string name="module_instant_feature_split_install">split</string>
+    <string name="instant_feature_url">http://uabsample-405d6.firebaseapp.com/url</string>
+    <string name="title_url_instant_module">url</string>
+    <string name="title_activity_url_instant_module">url_instant_module_activity</string>
 </resources>

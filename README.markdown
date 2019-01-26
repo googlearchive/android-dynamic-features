@@ -12,7 +12,12 @@ The sample contains several modules.
 
 The `MainActivity` class demonstrates how to use the API to load and launch features.
 
+The `BaseSplitActivity` abstract class implements the required `SplitCompat.Install()` call
+in the `attachBaseContext` method. This allow to launch an activity from a freshly downloaded
+dynamic module without having the restart the application.
+
 `features/*` -> Contains features which can be downloaded on demand using the PlayCore API.
+`instant/*` -> Contains instant enabled features which can be downloaded using the PlayCore API or via Url.
 
 Each feature as some distinctly unique characteristics.
 
@@ -20,10 +25,19 @@ Each feature as some distinctly unique characteristics.
 `features/kotlin` -> Feature written in Kotlin.
 `features/java` -> Feature written in Java.
 `features/native` -> Feature written in Kotlin using JNI.
+`instant/split` -> Instant Feature without an URL route. Loaded using Split
+Install API
+`instant/url` -> Instant Feature with a URL route
 
 The `AndroidManifest` files in each feature show
-how to declare a feature module as part of a dynamic app.
+how to declare a feature module as part of a dynamic app. Any module with the
+instant attribute is instant enabled. In this sample these can be found in the
+`instant/` folder:
 
+```
+  <dist:module
+    dist:instant="true"/>
+```
 
 ## Screenshots
 
@@ -34,6 +48,13 @@ how to declare a feature module as part of a dynamic app.
 
 Clone this repository, enter the top level directory and run <code>./gradlew tasks</code>
 to get an overview of all the tasks available for this project.
+
+## Testing dynamic delivery
+
+To test dynamic delivery with this sample, you'll need to upload it to the Google Play Store's
+internal testing channel.
+
+Before uploading, make sure to change the `applicationId` in `app/build.gradle`.
 
 
 ## Support
