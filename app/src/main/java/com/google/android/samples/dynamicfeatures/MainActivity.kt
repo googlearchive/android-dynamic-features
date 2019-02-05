@@ -53,30 +53,28 @@ class MainActivity : AppCompatActivity() {
     /** Listener used to handle changes in state for install requests. */
     private val listener = SplitInstallStateUpdatedListener { state ->
         val multiInstall = state.moduleNames().size > 1
-        state.moduleNames().forEach { name ->
-            // Handle changes in state.
-            when (state.status()) {
-                SplitInstallSessionStatus.DOWNLOADING -> {
-                    //  In order to see this, the application has to be uploaded to the Play Store.
-                    displayLoadingState(state, "Downloading $name")
-                }
-                SplitInstallSessionStatus.REQUIRES_USER_CONFIRMATION -> {
-                    /*
-                      This may occur when attempting to download a sufficiently large module.
+        val names = state.moduleNames().joinToString(" - ")
+        when (state.status()) {
+            SplitInstallSessionStatus.DOWNLOADING -> {
+                //  In order to see this, the application has to be uploaded to the Play Store.
+                displayLoadingState(state, "Downloading $names")
+            }
+            SplitInstallSessionStatus.REQUIRES_USER_CONFIRMATION -> {
+                /*
+                  This may occur when attempting to download a sufficiently large module.
 
-                      In order to see this, the application has to be uploaded to the Play Store.
-                      Then features can be requested until the confirmation path is triggered.
-                     */
-                    startIntentSender(state.resolutionIntent()?.intentSender, null, 0, 0, 0)
-                }
-                SplitInstallSessionStatus.INSTALLED -> {
-                    onSuccessfulLoad(name, launch = !multiInstall)
-                }
+                  In order to see this, the application has to be uploaded to the Play Store.
+                  Then features can be requested until the confirmation path is triggered.
+                 */
+                startIntentSender(state.resolutionIntent()?.intentSender, null, 0, 0, 0)
+            }
+            SplitInstallSessionStatus.INSTALLED -> {
+                onSuccessfulLoad(names, launch = !multiInstall)
+            }
 
-                SplitInstallSessionStatus.INSTALLING -> displayLoadingState(state, "Installing $name")
-                SplitInstallSessionStatus.FAILED -> {
-                    toastAndLog("Error: ${state.errorCode()} for module ${state.moduleNames()}")
-                }
+            SplitInstallSessionStatus.INSTALLING -> displayLoadingState(state, "Installing $names")
+            SplitInstallSessionStatus.FAILED -> {
+                toastAndLog("Error: ${state.errorCode()} for module ${state.moduleNames()}")
             }
         }
     }
@@ -184,16 +182,21 @@ class MainActivity : AppCompatActivity() {
     /** Install all features but do not launch any of them. */
     private fun installAllFeaturesNow() {
         // Request all known modules to be downloaded in a single session.
-        val request = SplitInstallRequest.newBuilder()
-                .addModule(moduleKotlin)
-                .addModule(moduleJava)
-                .addModule(moduleNative)
-                .addModule(moduleAssets)
-                .build()
+        val moduleNames = listOf(moduleKotlin, moduleJava, moduleNative, moduleAssets)
+        val requestBuilder = SplitInstallRequest.newBuilder()
 
-        // Start the install with above request.
+        moduleNames.forEach { name ->
+            if (!manager.installedModules.contains(name)) {
+                requestBuilder.addModule(name)
+            }
+        }
+
+        val request = requestBuilder.build()
+
         manager.startInstall(request).addOnSuccessListener {
             toastAndLog("Loading ${request.moduleNames}")
+        }.addOnFailureListener {
+            toastAndLog("Failed loading ${request.moduleNames}")
         }
     }
 
@@ -216,6 +219,8 @@ class MainActivity : AppCompatActivity() {
         val installedModules = manager.installedModules.toList()
         manager.deferredUninstall(installedModules).addOnSuccessListener {
             toastAndLog("Uninstalling $installedModules")
+        }.addOnFailureListener {
+            toastAndLog("Failed installation of $installedModules")
         }
     }
 

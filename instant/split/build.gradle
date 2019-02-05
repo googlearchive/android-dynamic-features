@@ -20,15 +20,14 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
 
-    compileSdkVersion 28
+    compileSdkVersion versions.compileSdk
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
     }
 }
 
 dependencies {
+
     implementation project(':app')
 }
