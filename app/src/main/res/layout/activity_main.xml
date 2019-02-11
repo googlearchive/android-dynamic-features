@@ -185,6 +185,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="btn_load_native,btn_load_assets,btn_load_java,
+        btn_instant_dynamic_feature_url_load,
+        btn_instant_dynamic_feature_split_install,
         btn_load_kotlin,instructions,btn_install_all_now,
         btn_install_all_deferred,btn_request_uninstall, btn_instant_dynamic_feature_split_install,
         btn_instant_dynamic_feature_url_load, lang_pl, lang_en" />
