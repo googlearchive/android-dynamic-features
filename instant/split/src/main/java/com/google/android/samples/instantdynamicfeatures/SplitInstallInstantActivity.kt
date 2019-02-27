@@ -16,10 +16,10 @@
 
 package com.google.android.samples.instantdynamicfeatures
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.google.android.samples.dynamicfeatures.BaseSplitActivity
 
-class SplitInstallInstantActivity : AppCompatActivity() {
+class SplitInstallInstantActivity : BaseSplitActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

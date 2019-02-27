@@ -16,10 +16,10 @@
 
 package com.android.samples.instantdynamicfeatures
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.google.android.samples.dynamicfeatures.BaseSplitActivity
 
-class UrlInstantModuleActivity : AppCompatActivity() {
+class UrlInstantModuleActivity : BaseSplitActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

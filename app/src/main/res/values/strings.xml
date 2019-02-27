@@ -28,5 +28,15 @@
     <string name="request_uninstall">Request module uninstall</string>
     <string name="instant_dynamic_feature_split_install">request instant split install</string>
     <string name="instant_dynamic_feature_url_load">request install split install via url</string>
-
+    <string name="force_polish">Force Polish</string>
+    <string name="force_english">Force English</string>
+    <string name="user_cancelled">The user cancelled module installation</string>
+    <string name="loading_module">Loading module %1$s</string>
+    <string name="loading_language">Loading language %1$s</string>
+    <string name="already_installed">Already installed</string>
+    <string name="starting_install_for">Starting install for %1$s</string>
+    <string name="downloading">Downloading %1$s</string>
+    <string name="installing">Installing %1$s</string>
+    <string name="error_for_module">Error: %1$i for module %2$s</string>
+    <string name="asset_content">Asset content</string>
 </resources>

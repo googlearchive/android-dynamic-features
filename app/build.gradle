@@ -57,7 +57,7 @@ dependencies {
     // This way they can be shared with dependent feature modules.
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
-    implementation 'androidx.annotation:annotation:1.0.1'
+    implementation 'androidx.annotation:annotation:1.0.2'
 
     api 'androidx.appcompat:appcompat:1.0.2'
     api 'androidx.constraintlayout:constraintlayout:1.1.3'

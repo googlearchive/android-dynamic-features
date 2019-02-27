@@ -45,7 +45,8 @@
         app:layout_constraintBottom_toTopOf="@+id/btn_load_java"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/instructions" />
+        app:layout_constraintTop_toBottomOf="@+id/instructions"
+        app:layout_constraintVertical_chainStyle="spread" />
 
     <Button
         android:id="@+id/btn_load_java"
@@ -142,13 +143,15 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/instant_dynamic_feature_url_load"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/lang_pl"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_instant_dynamic_feature_split_install" />
 
     <ProgressBar
         android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -156,8 +159,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        style="?android:attr/progressBarStyleHorizontal" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/progress_text"
@@ -184,6 +186,34 @@
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="btn_load_native,btn_load_assets,btn_load_java,
         btn_load_kotlin,instructions,btn_install_all_now,
-        btn_install_all_deferred,btn_request_uninstall" />
+        btn_install_all_deferred,btn_request_uninstall, btn_instant_dynamic_feature_split_install,
+        btn_instant_dynamic_feature_url_load, lang_pl, lang_en" />
+
+    <Button
+        android:id="@+id/lang_en"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/force_english"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/lang_pl"
+        tools:layout_editor_absoluteY="642dp"
+        app:layout_constraintTop_toTopOf="@+id/lang_pl"
+        />
+
+    <Button
+        android:id="@+id/lang_pl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/force_polish"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/lang_en"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_instant_dynamic_feature_url_load" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
