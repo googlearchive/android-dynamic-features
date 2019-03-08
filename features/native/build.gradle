@@ -48,4 +48,13 @@ android {
 dependencies {
 
     implementation project(':app')
+
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:${versions.espresso}"
+    androidTestImplementation "androidx.test:rules:${versions.testRules}"
+    androidTestImplementation "androidx.test.ext:junit:${versions.extJunit}"
+
+    // When using API in base, some dependencies might have to be re-added for test implementation.
+    androidTestImplementation "androidx.appcompat:appcompat:${versions.appcompat}"
+
+    androidTestImplementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
 }

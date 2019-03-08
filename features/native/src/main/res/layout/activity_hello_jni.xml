@@ -20,7 +20,7 @@
     android:id="@+id/activity_hello_jni"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NativeSampleActivity">
+    tools:context="com.google.android.samples.dynamicfeatures.ondemand.NativeSampleActivity">
 
     <TextView
         android:id="@+id/hello_textview"

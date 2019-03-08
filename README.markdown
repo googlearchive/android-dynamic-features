@@ -56,6 +56,14 @@ internal testing channel.
 
 Before uploading, make sure to change the `applicationId` in `app/build.gradle`.
 
+## Running instrumentation tests
+
+In order to run instrumentation tests, parallel builds have to be turned off at the moment.
+This means you can run them via `./gradlew connectedAndroidTest --no-parallel`.
+
+Tooling support for this is being worked on – currently it's not possible to run
+instrumentation tests for dynamic-feature modules from Android Studio directly.
+Use the command line instead.
 
 ## Support
 

@@ -15,18 +15,31 @@
  */
 
 apply plugin: 'com.android.dynamic-feature'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 
 android {
 
     compileSdkVersion versions.compileSdk
+
     defaultConfig {
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 }
 
 dependencies {
 
     implementation project(':app')
+
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:${versions.espresso}"
+    androidTestImplementation "androidx.test:rules:${versions.testRules}"
+    androidTestImplementation "androidx.test.ext:junit:${versions.extJunit}"
+
+    // When using API in base, some dependencies might have to be re-added for test implementation.
+    androidTestImplementation "androidx.appcompat:appcompat:${versions.appcompat}"
+
+    androidTestImplementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
+
 }
