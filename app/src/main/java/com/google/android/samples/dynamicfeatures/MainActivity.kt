@@ -50,8 +50,8 @@ private const val INSTANT_SAMPLE_CLASSNAME = "$INSTANT_PACKAGE_NAME.SplitInstall
 
 private const val CONFIRMATION_REQUEST_CODE = 1
 
+private const val TAG = "DynamicFeatures"
 
-/** Activity that displays buttons and handles loading of feature modules. */
 class MainActivity : BaseSplitActivity() {
     /** Listener used to handle changes in state for install requests. */
     private val listener = SplitInstallStateUpdatedListener { state ->
@@ -140,9 +140,7 @@ class MainActivity : BaseSplitActivity() {
     private lateinit var manager: SplitInstallManager
 
     private lateinit var progress: Group
-
     private lateinit var buttons: Group
-
     private lateinit var progressBar: ProgressBar
     private lateinit var progressText: TextView
 
@@ -263,7 +261,6 @@ class MainActivity : BaseSplitActivity() {
 
     /** Install all features deferred. */
     private fun installAllFeaturesDeferred() {
-
         val modules = listOf(moduleKotlin, moduleJava, moduleAssets, moduleNative)
 
         manager.deferredInstall(modules).addOnSuccessListener {
@@ -338,7 +335,6 @@ class MainActivity : BaseSplitActivity() {
 
     /** Set all click listeners required for the buttons on the UI. */
     private fun setupClickListener() {
-
         setClickListener(R.id.btn_load_kotlin, clickListener)
         setClickListener(R.id.btn_load_java, clickListener)
         setClickListener(R.id.btn_load_assets, clickListener)
@@ -379,5 +375,3 @@ fun MainActivity.toastAndLog(text: String) {
     Toast.makeText(this, text, Toast.LENGTH_LONG).show()
     Log.d(TAG, text)
 }
-
-private const val TAG = "DynamicFeatures"
